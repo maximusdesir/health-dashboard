@@ -8,7 +8,6 @@ Custom Claude Code slash commands for health and performance tracking. Pull real
 |---|---|
 | `/health-optimizer` | Daily note: pull today's recovery data, apply autoregulation, output a modified session plan + nutrition targets + recovery stack |
 | `/audit` | Weekly coaching report: learning pace, training load, recovery trends, body composition, schedule analysis |
-| `/summarize <url>` | Fetch a YouTube video, podcast, or article and save a structured source note to your vault |
 
 ## Prerequisites
 
@@ -35,15 +34,10 @@ Commands expect an [Obsidian](https://obsidian.md) vault (or any folder) with th
 
 ```
 vault/
-├── 0 Inbox/
+├── Inbox/
 │   ├── Daily/        ← health-optimizer saves here
 │   └── Weekly/       ← audit saves here
-├── 1 Notes/
-├── 2 Sources/
-│   ├── Articles/
-│   ├── YouTube/
-│   └── Podcasts/
-└── 6 Training/       ← optional: day files for autoregulation
+└── Training/       ← optional: day files for autoregulation
 ```
 
 Set `VAULT_PATH` to your vault's absolute path:
@@ -61,16 +55,16 @@ If `VAULT_PATH` is unset, commands default to `~/vault`.
 ### Option A — Global (works from any directory)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-health-skills
-cp claude-health-skills/commands/* ~/.claude/commands/
+git clone https://github.com/maximusdesir/health-dashboard
+cp health-dashboard/commands/* ~/.claude/commands/
 ```
 
 ### Option B — Project-local (only active inside your vault)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-health-skills
+git clone https://github.com/maximusdesir/health-dashboard
 mkdir -p your-vault/.claude/commands
-cp claude-health-skills/commands/* your-vault/.claude/commands/
+cp health-dashboard/commands/* your-vault/.claude/commands/
 ```
 
 Verify installation — open Claude Code and type `/` to see available commands.
@@ -86,7 +80,6 @@ claude
 # Inside Claude Code:
 /health-optimizer          # run daily before training
 /audit                     # run weekly (Sunday or Monday AM)
-/summarize https://...     # save a source note
 ```
 
 ### Training Day Files (optional, for `/health-optimizer`)
@@ -102,7 +95,7 @@ Each `.md` file in `commands/` is plain Markdown — edit them directly to match
 Common customizations:
 - **Recovery thresholds** — adjust the 67%/34% gates in `health-optimizer.md`
 - **Nutrition targets** — fill in your actual macros in the load table
-- **Audit goals** — replace the CS50x / bench press targets in `audit.md` with your own
+- **Audit goals** — replace the goal targets in `audit.md` with your own
 - **Vault paths** — all paths resolve from `$VAULT_PATH`
 
 ---
