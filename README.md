@@ -1,4 +1,4 @@
-# claude-health-skills
+# health-dashboard
 
 Custom Claude Code slash commands for health and performance tracking. Pull real-time biometric data from WHOOP, Withings, and Hevy, cross-reference with your training program, and get direct coaching reports — all inside your terminal.
 
