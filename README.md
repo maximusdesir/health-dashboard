@@ -35,9 +35,9 @@ These commands require MCP servers connected to Claude Code. Add them via `/mcp`
 
 | Integration | Required for | Source |
 |---|---|---|
-| [WHOOP MCP](https://github.com/lekimluis/whoop-mcp) | `/health-optimizer`, `/audit` | Community |
-| [Withings MCP](https://github.com/nicholasgrigoriadis/withings-mcp) | `/health-optimizer`, `/audit` | Community |
-| Hevy MCP | `/audit` | Optional |
+| [WHOOP MCP](https://github.com/briangaoo/whoop-mcp) | `/health-optimizer`, `/audit` | Community |
+| [Withings MCP](https://withings-mcp.com/) | `/health-optimizer`, `/audit` | Community |
+| [Hevy MCP](https://hevy.tomt.it/) | `/audit` | Optional |
 | Google Calendar MCP | `/audit` | Optional |
 
 Commands degrade gracefully when optional integrations are absent — they note which data is unavailable and continue with what's connected.
