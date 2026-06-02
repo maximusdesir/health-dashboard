@@ -3,6 +3,22 @@ Daily health optimization note. Pulls today's biometric data (WHOOP + Withings),
 Requires: WHOOP MCP, Withings MCP. Optional: Hevy MCP.
 Vault path: set `VAULT_PATH` env var, or defaults to `~/vault`.
 
+> **Evidence & Confidence**
+> Recovery gate thresholds are WHOOP vendor-defined product bands — not externally validated physiology.
+> Volume adjustments (−20%/−40%) are practical heuristics; no published study derives these specific numbers.
+> Mg Glycinate and L-Theanine+caffeine have Moderate RCT support. Glycine 3g has small-n RCT support.
+> Apigenin has preclinical and chamomile-extract data only — no human RCT exists at the 50mg supplement dose.
+> NSDR reduces fatigue perception and stress; it does not biochemically repay sleep debt.
+> PBM (red light): moderate evidence for targeted pre/post-exercise muscle application; AM facial
+> and whole-body protocols have weaker support.
+> Cold water within 4–6h of resistance training attenuates hypertrophy signaling (strong evidence —
+> Roberts 2015; PMC11235606 meta-analysis 2023). The current protocol schedules cold on non-lift days only.
+>
+> **Disclaimer:** Self-tracking and decision-support only. Not medical advice. Consumer wearables carry
+> measurement error — treat all outputs as relative signals, not clinical readings. Supplement names
+> in this template are illustrative — do not adopt any compound without personalizing to your own needs
+> and consulting a qualified clinician or registered dietitian.
+
 ---
 
 ## Setup
@@ -42,7 +58,7 @@ Look for day files in this order:
 1. Check `$VAULT_PATH/6 Training/` or a similar training folder for day-specific files
 2. Fall back to reading your weekly schedule file if individual day files don't exist
 
-If no training files found, note "no vault training data — using manual schedule" and proceed with whatever schedule the user has described.
+If no training files found, note "no vault training data — using manual schedule" and proceed.
 
 ---
 
@@ -50,21 +66,26 @@ If no training files found, note "no vault training data — using manual schedu
 
 ### A. Recovery Gate
 
-Apply the recovery gate to today's programmed session:
+> WHOOP recovery bands are proprietary product thresholds — use as a consistent relative guide.
+> The −20%/−40% adjustments are practical heuristics, not evidence-derived numbers. Adjust to
+> match your own training history and response.
 
 | WHOOP Recovery | Action |
 |---|---|
 | ≥ 67% (Green) | Train as programmed — full volume, full intensity |
-| 34–66% (Yellow) | −20% volume (drop one set per compound), keep all working weights |
-| < 33% (Red) | Compounds only, −40% sets, no max-effort work — or swap to active recovery |
+| 34–66% (Yellow) | −20% volume (drop one set per compound), keep all working weights # heuristic |
+| < 33% (Red) | Compounds only, −40% sets, no max-effort work — or swap to active recovery # heuristic |
 
 ### B. Sleep Debt Modifier
+
+> These tiers are practical prompts, not evidence-derived thresholds. NSDR reduces perceived
+> fatigue — it does not biochemically repay sleep debt.
 
 | Sleep Debt | Modifier |
 |---|---|
 | < 30 min | No change |
-| 30–60 min | Add 15-min NSDR before training if morning session |
-| > 60 min | Flag: consider shifting training to later in day; reduce session intensity one tier |
+| 30–60 min | Optional: 15-min NSDR before training to reduce perceived fatigue |
+| > 60 min | Consider shifting training later if schedule allows; cap intensity one tier below gate |
 
 ### C. Session Plan
 
@@ -83,14 +104,20 @@ Classify today's load (based on session type + recovery gate result):
 | Moderate (Yellow gate or light session) | −200–300 kcal | Unchanged | −30–50g | Unchanged |
 | Light / Off (Red gate or rest day) | −400–500 kcal | Unchanged | −60–80g | Unchanged |
 
-Fill in the actual numbers from the user's nutrition protocol if available.
+Fill in the actual numbers from your nutrition protocol.
+
+> Post-workout nutrition: total daily protein intake and distribution every 3–4h matter more than
+> a narrow post-workout window. The "45-minute anabolic window" is largely unsupported by current
+> ISSN positions (2017). Eat soon after training when practical — the urgency is overstated.
 
 ### E. Recovery Stack for Tonight
 
-Based on yesterday's sleep performance and today's training:
-- Supplement timing adjustments (note if magnesium should be higher, ashwagandha cycling day, etc.)
-- Lights-out target (adjust ±15 min based on sleep debt)
-- Flag any protocol deviations (late caffeine, skipped NSDR, etc.)
+Based on yesterday's sleep performance and today's training. Replace the illustrative supplement
+names below with your own personalized stack.
+
+> Cold: do not schedule within 4–6h of resistance training. Strong evidence that post-lift cold
+> water immersion blunts hypertrophic adaptations (Roberts 2015; PMC11235606 meta-analysis 2023).
+> Cold is appropriate on sprint, field, conditioning, and rest days.
 
 ---
 
@@ -144,8 +171,9 @@ sleep_debt: [N] min
 **Target:** ~N kcal · Ng protein · Ng carbs · Ng fat
 
 **Peri-workout:**
-- Pre (30 min): [carbs + caffeine if applicable]
-- Post (45 min): [protein + carbs]
+- Pre (30–45 min): [carbs + caffeine if applicable]
+- Post (within 2–3h, ideally soon after): [protein + carbs]
+  # Total daily protein distribution matters more than a narrow post-workout window
 
 ---
 
@@ -153,10 +181,11 @@ sleep_debt: [N] min
 
 | Protocol | Target |
 |---|---|
-| Last food | 6:30 PM |
-| Supplements | 7:30–8:00 PM — [list] |
+| Last food | [your cutoff] |
+| Supplements | [your evening stack] |
 | Lights out | N:NN PM |
 | NSDR | [yes/no, timing] |
+| Cold | [yes/no] # Not within 4–6h of resistance training |
 
 ---
 

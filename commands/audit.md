@@ -3,6 +3,18 @@ Weekly personal audit: deep work pace, physical performance, body composition, a
 Requires: WHOOP MCP, Withings MCP, Google Calendar MCP. Optional: Hevy MCP.
 Vault path: set `VAULT_PATH` env var, or defaults to `~/vault`.
 
+> **Evidence & Confidence**
+> HRV-guided autoregulation has moderate-to-strong meta-analytic support as a general approach.
+> WHOOP recovery score is a proprietary composite — not independently validated for performance
+> prediction. WHOOP HRV (PPG-derived) has acceptable but not clinical-grade accuracy vs ECG.
+> Withings consumer BIA body fat % has ±1–3% day-to-day variation from hydration alone — use
+> ≥4-week morning-fasted trends, not single readings. The WHOOP↔Withings framework below is
+> heuristic pattern-matching from noisy signals; treat it as a prompt for investigation, not a
+> conclusion. HRV absolute targets are highly individual — track your own trend, not a fixed number.
+>
+> **Disclaimer:** Self-tracking and decision-support only. Not medical advice. Consumer wearables
+> carry measurement error. Consult a clinician for symptoms, injuries, or health concerns.
+
 ---
 
 ## Setup
@@ -94,7 +106,7 @@ If the user has learning goals (CS courses, books, certifications):
 **Recovery:**
 - 7-day HRV trend: direction and % vs monthly baseline
 - Day-by-day recovery scores: green/yellow/red count
-- RHR trend: rising = accumulating fatigue
+- RHR trend: rising RHR across multiple days signals accumulating fatigue or illness
 - Sleep debt from `whoop_sleep_need`
 
 **Sleep:**
@@ -102,15 +114,21 @@ If the user has learning goals (CS courses, books, certifications):
 - Sleep performance % and consistency score
 - Any nights under 7h — name them
 
-**Body composition — WHOOP↔Withings framework:**
+**Body composition — WHOOP↔Withings heuristic framework:**
+
+Treat each pattern as a prompt for investigation, not a conclusion. Withings BIA has ±1–3% day-to-day
+variation from hydration alone. Use ≥4-week morning-fasted trends. Do not act on single-week BF%
+changes of <2%.
 
 | Pattern | Signal |
 |---|---|
-| High strain + weight UP | Water retention / inflammation — not fat gain |
-| Low strain + weight UP | Potential fat gain — flag nutrition audit |
-| Declining HRV + weight dropping fast | Muscle loss risk — check protein/calories |
-| BF% flat despite consistent training | Nutrition gap — not in deficit or protein low |
-| BF% dropping + HRV stable/rising | Optimal recomp — confirm and reinforce |
+| High strain + weight UP | Probable water retention / glycogen loading — do not panic cut; monitor 5–7 days |
+| Low strain + weight UP | Possible fat accumulation OR hydration artifact — act only if trend persists ≥2 weeks |
+| Declining HRV + weight dropping fast | Prompt: check protein/calorie adequacy AND other stressors (illness, stress, poor sleep) |
+| BF% flat despite consistent training | Possible nutrition gap OR BIA noise — verify with ≥4-week trend before acting |
+| BF% dropping + HRV stable/rising | Positive recomp signal — reinforce; confirm over ≥4 weeks, morning-fasted, same conditions |
+
+> Standardize Withings measurements: every morning before food/fluid, after voiding, same conditions.
 
 ### C. Schedule Audit
 
@@ -130,9 +148,14 @@ Flag these interactions if present:
 
 ## Phase 3 — Coaching Report
 
-**Tone: direct, demanding, zero sugarcoating.** State failures plainly. Give concrete numbers. Every recommendation tied to a specific data point.
+**Tone: direct, specific, no hedging.** Give concrete numbers. Every recommendation tied to a data point. Praise only when genuinely earned and only briefly.
+
+For every 🔴 domain: state the gap precisely, then add one line: **Next action:** [the single most important step to close it this week].
 
 Save to: `$VAULT_PATH/0 Inbox/Weekly/YYYY-MM-DD Weekly Audit.md`
+
+> **Configure your goals before using this template.** Replace every `[YOUR_*]` placeholder in the
+> Goal Countdown section with your actual goals. See `README.md` → "Configure Your Targets."
 
 ```markdown
 ---
@@ -160,6 +183,7 @@ tags: [audit, weekly]
 ## Learning
 
 [Sessions, hours, pace per goal, gaps flagged]
+[If 🔴: **Next action:** ...]
 
 ---
 
@@ -167,15 +191,18 @@ tags: [audit, weekly]
 
 ### Training
 [Workouts, strain, lift progression]
+[If 🔴: **Next action:** ...]
 
 ### Recovery
 [HRV trend, recovery scores, RHR, sleep debt]
+[If 🔴: **Next action:** ...]
 
 ### Sleep
 [Avg duration, performance %, nights under 7h]
 
 ### Body Composition
 [14-day weight + BF% trend, WHOOP↔Withings flag if applicable]
+> Note: single-week BF% shifts of <2% are within Withings BIA measurement noise.
 
 ### Fitness Tier
 [Performance assessment result, WHOOP coach key insight]
@@ -190,7 +217,7 @@ tags: [audit, weekly]
 
 ## Directives
 
-[6–8 numbered, specific, non-negotiable orders for the coming week. Each tied to a data point.]
+[6–8 numbered, specific actions for the coming week. Each tied to a data point.]
 
 1.
 2.
@@ -198,6 +225,26 @@ tags: [audit, weekly]
 4.
 5.
 6.
+
+---
+
+## Goal Countdown
+
+| Goal | Current | Target | Gap | On Track? |
+|---|---|---|---|---|
+| [YOUR LEARNING GOAL 1] | [X] | [Target] | [N] | ✅ / ⚠️ / ❌ |
+| [YOUR LEARNING GOAL 2] | [X] | [Target] | [N] | ✅ / ⚠️ / ❌ |
+| [PRIMARY LIFT 1] | [X lb/kg] | [YOUR_TARGET] | [N] | ✅ / ⚠️ / ❌ |
+| [PRIMARY LIFT 2] | [X lb/kg] | [YOUR_TARGET] | [N] | ✅ / ⚠️ / ❌ |
+| Weight / BF% | [X / Y%] | [YOUR_TARGET] | — | ✅ / ⚠️ / ❌ |
+| VO2 Max (estimated) | [X] | [YOUR_TARGET] | [N] | ✅ / ⚠️ / ❌ |
+| HRV (28d trend) | [X ms avg] | ↑ trend | — | ✅ / ⚠️ / ❌ |
+| RHR | [X bpm] | [YOUR_TARGET] | [N] | ✅ / ⚠️ / ❌ |
+| [ANY OTHER GOAL] | [X] | [Target] | [N] | ✅ / ⚠️ / ❌ |
+
+> HRV: tracking your 28-day trend direction matters more than any absolute number. Cross-person
+> HRV targets are not physiologically meaningful due to large individual variation.
+> VO2 Max: WHOOP estimate is a proxy — not a validated VO2max measurement.
 ```
 
 ---
