@@ -16,7 +16,7 @@ Custom Claude Code slash commands for health and performance tracking. Pull real
 
 | Command | Description |
 |---|---|
-| `/health-optimizer` | Daily note: pull today's recovery data, apply autoregulation, output a modified session plan + nutrition targets + recovery stack |
+| `/health-optimizer` | Daily recap + look-ahead: recap yesterday (training, deep work, recovery, regulation), then plan today — modified session + learning plan + nutrition + recovery/regulation stack |
 | `/audit` | Weekly coaching report: learning pace, training load, recovery trends, body composition, schedule analysis |
 
 ---
